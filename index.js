@@ -17,9 +17,9 @@ app.use(methodOverride('_method'))
 app.use(cors())
 
 
-// app.get('/api/furniture', (req, res) => {
-//     res.json(seedData)
-// })
+app.get('/api/furniture', (req, res) => {
+    res.json(seedData)
+})
 
 // app.get('/api/translations', (req, res) => {
 //     Translation.find()

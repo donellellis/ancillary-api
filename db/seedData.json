@@ -1,28 +1,31 @@
 [
   {
-    "quantity": 0,
-    "manufacturer": "",
-    "modelName": "",
-    "modelNumber": "",
-    "dimensions": "",
-    "imageURL": ""
+    "quantity": 2,
+    "manufacturer": "studiotk",
+    "modelName": "lasai",
+    "modelNumber": "ALLCA",
+    "dimensions": "30 D x 31.5 W 23.75 H",
+    "imageURL": "https://i.imgur.com/3TXf2cp.jpg",
+    "list": 2595
   },
 
   {
-    "quantity": 0,
-    "manufacturer": "",
-    "modelName": "",
-    "modelNumber": "",
-    "dimensions": "",
-    "imageURL": ""
+    "quantity": 6,
+    "manufacturer": "coalesse",
+    "modelName": "wishbone",
+    "modelNumber": "ch24",
+    "dimensions": "20 D 21.5 W 29.5 H",
+    "imageURL": "https://i.imgur.com/2XFQPBB.png",
+    "list": 900
   },
 
   {
-    "quantity": 0,
-    "manufacturer": "",
-    "modelName": "",
-    "modelNumber": "",
-    "dimensions": "",
-    "imageURL": ""
+    "quantity": 4,
+    "manufacturer": "herman miller",
+    "modelName": "crosshatch",
+    "modelNumber": "SES1A6A122H16CBKNOCAL",
+    "dimensions": "30.25 D 31.25 W 28.5 H",
+    "imageURL": "https://i.imgur.com/ecVn718.jpg",
+    "list": 2500
   }
 ]

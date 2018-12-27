@@ -9,9 +9,12 @@ const Furniture = new Schema({
   modelName: String,
   modelNumber: String,
   dimensions: String,
-  imageURL: String
+  imageURL: String,
+  list: Number
   // add automatically generated tag
   // add finishes
+  // format d w l consistently - seperate
+  // format list price consistently
 });
 
 // create instances chair and table
