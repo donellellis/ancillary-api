@@ -8,14 +8,3 @@ const User = new Schema({
 })
 
 module.exports = mongoose.model('User', User)
-
-// const mongoose = require('../db/connection')
-
-// const UserSchema = new mongoose.Schema({
-// 	email: String,
-// 	password: String
-// })
-
-// mongoose.model('User', UserSchema)
-
-// module.exports = mongoose
