@@ -11,7 +11,6 @@ router.post('/', (req, res) => {
         imageURL: req.body.imageURL
     }).then(project => {
         res.json(project)
-        console.log(project)
     }).catch((err) => {
         console.log(err)
     })
@@ -25,6 +24,6 @@ router.get('/', (req, res) => {
       .catch((err) => {
         console.log(err)
       })
-  })
+})
 
 module.exports = router
