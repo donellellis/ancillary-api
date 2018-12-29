@@ -1,0 +1,15 @@
+[
+    {
+        "_id" : "300",
+        "email" : "meg@email.com",
+        "password" : "meg123",
+        "projectIds" : ["100"]
+    },
+
+    {
+        "_id" : "301",
+        "email" : "Ray@Eames.com",
+        "password" : "LaChaise1948",
+        "projectIds" : ["100", "101"]
+    }
+]

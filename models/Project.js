@@ -6,6 +6,7 @@ const Project = new Schema({
 	name: String,
     client: String,
     imageURL: String,
+    chairIds: [String]
 })
 
 module.exports = mongoose.model('Project', Project)

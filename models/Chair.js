@@ -5,8 +5,8 @@ const Schema = mongoose.Schema;
 
 const Chair = new Schema({
   manufacturer: String,
-  modelName: String,
-  modelNumber: String,
+  chairName: String,
+  chairNumber: String,
   dimensions: String,
   imageURL: String,
   list: Number

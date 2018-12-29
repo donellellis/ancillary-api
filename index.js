@@ -20,7 +20,7 @@ app.use(parser.json())
 app.use(methodOverride('_method'))
 app.use(cors())
 app.use(passport.initialize())
-// app.use('/api/chairs', chairController)
+// app.use('/chairs', chairController)
 app.use('/projects', projectController)
 app.use('/users', userController)
 

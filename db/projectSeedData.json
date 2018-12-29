@@ -1,0 +1,17 @@
+[
+        {
+        "_id" : "100",
+        "name" : "moonshot",
+        "client" : "jesse gerard",
+        "imageURL" : "https://i.imgur.com/nUA7NRz.jpg?1",
+        "chairIds" : ["201"]
+        },
+
+        {
+        "_id" : "101",
+        "name" : "little leaf",
+        "client" : "stacey mckenzie",
+        "imageURL" : "https://i.imgur.com/S9wexON.jpg?2",
+        "chairIds" : ["200", "202"]
+        }
+]

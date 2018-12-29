@@ -1,16 +1,49 @@
-// const mongoose = require('../models/Furniture')
-// const data = require('./seedData')
+// const mongoose = require('./connection')
 
-// const Furniture = mongoose.model('Furniture')
+const chairData = require('./chairSeedData.json')
+const userData = require('./userSeedData.json')
+const projectData = require('./projectSeedData.json')
 
-// Furniture.remove({})
-//     .then(_ => {
-//         Furniture.collection.insert(data)
-//             .then(seededEntries => {
-//                 console.log(seededEntries)
-//                 process.exit()
-//             })
-//     })
-//     .catch(err => {
-//         console.log(err)
-//     })
+const Chair = require('../models/Chair')
+const User = require('../models/User')
+const Project = require('../models/Project')
+
+
+// const Chair = mongoose.model('Chair')
+// const User = mongoose.model('User')
+// const Project = mongoose.model('Project')
+
+// mongoose.Promise = Promise;
+
+Chair.remove({})
+    .then( () => {
+        Chair.collection.insert(chairData)
+            .then(seededEntries => {
+                console.log(seededEntries)
+            })
+    })
+    .catch(err => {
+        console.log(err)
+})
+
+User.remove({})
+    .then( () => {
+        User.collection.insert(userData)
+            .then(seededEntries => {
+                console.log(seededEntries)
+            })
+    })
+    .catch(err => {
+        console.log(err)
+})
+
+Project.remove({})
+    .then(() => {
+        Project.collection.insert(projectData)
+            .then(seededEntries => {
+                console.log(seededEntries)
+            })
+    })
+    .catch(err => {
+        console.log(err)
+})

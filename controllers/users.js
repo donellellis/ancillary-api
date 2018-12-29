@@ -22,13 +22,17 @@ router.post('/signup', (req, res) => {
             User.create(newUser)
               .then(user => {
                 if (user) {
-                  var payload = {
-                    id: newUser.id
+                  let payload = {
+                    id: user._id
                   }
-                  var token = jwt.encode(payload, config.jwtSecret)
+                  // console.log(payload)
+                  
+                  let token = jwt.encode(payload, config.jwtSecret)
+                  // console.log(jwt.decode(token, config.jwtSecret))
                   res.json({
                     token: token
                   })
+
                 } else {
                   res.sendStatus(401)
                 }
@@ -46,11 +50,13 @@ router.post('/signup', (req, res) => {
     if (req.body.email && req.body.password) {
       User.findOne({ email: req.body.email }).then(user => {
         if (user) {
+          console.log(user)
           if (user.password === req.body.password) {
-            var payload = {
-              id: user.id
+            let payload = {
+              id: user._id
             }
-            var token = jwt.encode(payload, config.jwtSecret)
+            let token = jwt.encode(payload, config.jwtSecret)
+            console.log(jwt.decode(token, config.jwtSecret))
             res.json({
               token: token
             })
