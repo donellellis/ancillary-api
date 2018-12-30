@@ -1,12 +1,22 @@
-const mongoose = require('../db/connection')
+const mongoose = require('../db/connection.js')
+// const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const Project = new Schema({
+const ProjectSchema = new mongoose.Schema({
 	name: String,
     client: String,
     imageURL: String,
-    chairIds: [String]
+    userIds: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    },
+    chairIds: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Chair'
+    }]
 })
 
-module.exports = mongoose.model('Project', Project)
+mongoose.model('Project', ProjectSchema);
+
+module.exports = mongoose.model('Project');

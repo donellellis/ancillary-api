@@ -1,6 +1,6 @@
 [
   {
-    "_id": "200",
+    "_id" : "5c281c9d42df63572decc1f8",
     "manufacturer": "studiotk",
     "chairName": "lasai",
     "chairNumber": "ALLCA",
@@ -10,7 +10,7 @@
   },
 
   {
-    "_id": "201",
+    "_id" : "5c281c9d42df63572decc1f9",
     "manufacturer": "coalesse",
     "chairName": "wishbone",
     "chairNumber": "ch24",
@@ -20,7 +20,7 @@
   },
 
   {
-    "_id": "202",
+    "_id" : "5c281c9d42df63572decc1fa",
     "manufacturer": "herman miller",
     "chairName": "crosshatch",
     "chairNumber": "SES1A6A122H16CBKNOCAL",

@@ -1,5 +1,3 @@
-// const mongoose = require('./connection')
-
 const chairData = require('./chairSeedData.json')
 const userData = require('./userSeedData.json')
 const projectData = require('./projectSeedData.json')
@@ -8,12 +6,6 @@ const Chair = require('../models/Chair')
 const User = require('../models/User')
 const Project = require('../models/Project')
 
-
-// const Chair = mongoose.model('Chair')
-// const User = mongoose.model('User')
-// const Project = mongoose.model('Project')
-
-// mongoose.Promise = Promise;
 
 Chair.remove({})
     .then( () => {

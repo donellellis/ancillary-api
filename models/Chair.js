@@ -1,9 +1,7 @@
-const mongoose = require("../db/connection")
+const mongoose = require('../db/connection.js')
+// const mongoose = require('mongoose');
 
-const Schema = mongoose.Schema;
-
-
-const Chair = new Schema({
+const ChairSchema = new mongoose.Schema({
   manufacturer: String,
   chairName: String,
   chairNumber: String,
@@ -17,6 +15,9 @@ const Chair = new Schema({
   // format list price consistently
 });
 
-// create instances chair and table
 
-module.exports = mongoose.model("Chair", Chair);
+
+mongoose.model('Chair', ChairSchema);
+
+module.exports = mongoose.model('Chair');
+
