@@ -10,14 +10,14 @@ const User = mongoose.model('User')
 
 const params = {
   secretOrKey: config.jwtSecret,
-  jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken()
+  jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
 }
 
 module.exports = function () {
   let strategy = new Strategy(params, (payload, callback) => {
     let user = User.findById(payload.id) || null
     if (user) {
-      return callback(null, { id: user.id })
+      return callback(null, { id: user._id })
     } else {
       return callback(new Error('User not found'), null)
     }

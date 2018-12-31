@@ -1,59 +1,36 @@
 const express = require('express')
 const router = express.Router()
+const passport = require('../config/passport')
 
 const User = require('../models/User')
 const Project = require('../models/Project')
 
-
-const jwt = require('jwt-simple') // used to create, sign, and verify tokens
-const config = require('../config/config') //get config file
+const decodeToken = require('./auth')
 
 
-// used to verify token and create a request for use in other routes
-function verifyToken(req, res, next) {
-
-    // check header for token
-    var token = req.headers['x-access-token'];
-    if (!token) 
-      return res.status(403).send({ auth: false, message: 'No token provided.' });
-
-    // verifies secret
-    jwt.verify(token, config.jwtSecret, function(err, decoded) {      
-      if (err) 
-        return res.status(500).send({ auth: false, message: 'Failed to authenticate token.' });    
-  
-      // if everything is verified, save to request for use in other routes
-      req.userId = decoded.id;
-      next();
-    });
-  
-}
+// this auth method requires that the token be send in the "header" portion of the request with the "Bearer" prefix
+// headers: {
+//   authorization: 'Bearer ' + token
+//}
 
 
+router.get('/', (req, res) => {
+    const id = decodeToken(req)
 
-router.get('/show'), (req, res) => {
+    console.log(id)
+    User.findById(id)
+    .populate('projectIds')
+    .then(user => {
+        console.log('user', user)
+        if (user !== null) {
+            // request is authenticated
+            res.json(user.projectIds)
+        }
+    }) 
 
-}
+})
 
-
-// jesse
-// function verityToken(token) {
-//     const id = jwt.decode(token, config.jwtSecret)
-//     // User.findById(id)
-
-//     // if findById returns a document ( is found in database)
-//     // return true
-//     // else return false
-// }
-
-// jesse
-// router.get('/'), (req, res) => {
-//     if (verifyToken(req.body.token {
-//         // get project ids from user db
-//         // then get project data from projects db
-//         // res project data
-//     }))
-// }
+router.post('/new')
 
 
 // router.post('/', (req, res) => {
@@ -68,46 +45,5 @@ router.get('/show'), (req, res) => {
 //     })
 // })
 
-// router.get('/', (req, res) => {
-//     Project.find()
-//       .then((projects) => {
-//         res.json(projects)
-//       })
-//       .catch((err) => {
-//         console.log(err)
-//       })
-// })
 
 module.exports = router
-
-
-
-
-
-
-
-
-
-var jwt = require('jsonwebtoken'); // used to create, sign, and verify tokens
-var config = require('../config'); // get our config file
-
-function verifyToken(req, res, next) {
-
-  // check header or url parameters or post parameters for token
-  var token = req.headers['x-access-token'];
-  if (!token) 
-    return res.status(403).send({ auth: false, message: 'No token provided.' });
-
-  // verifies secret and checks exp
-  jwt.verify(token, config.secret, function(err, decoded) {      
-    if (err) 
-      return res.status(500).send({ auth: false, message: 'Failed to authenticate token.' });    
-
-    // if everything is good, save to request for use in other routes
-    req.userId = decoded.id;
-    next();
-  });
-
-}
-
-module.exports = verifyToken;

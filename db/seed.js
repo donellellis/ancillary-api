@@ -1,6 +1,6 @@
 const chairData = require('./chairSeedData.json')
-const userData = require('./userSeedData.json')
-const projectData = require('./projectSeedData.json')
+const userData = require('./userSeedData').userSeedData
+const projectData = require('./projectSeedData').projectSeedData
 
 const Chair = require('../models/Chair')
 const User = require('../models/User')
