@@ -6,10 +6,6 @@ const ProjectSchema = new mongoose.Schema({
 	name: String,
     client: String,
     imageURL: String,
-    userIds: {
-        type: Schema.Types.ObjectId,
-        ref: 'User'
-    },
     chairIds: [{
         type: Schema.Types.ObjectId,
         ref: 'Chair'

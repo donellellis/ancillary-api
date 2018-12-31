@@ -1,20 +1,14 @@
 const express = require('express')
 const router = express.Router()
-const passport = require('../config/passport')
 
 const User = require('../models/User')
 const Project = require('../models/Project')
 
 const decodeToken = require('./auth')
 
-
-// this auth method requires that the token be send in the "header" portion of the request with the "Bearer" prefix
-// headers: {
-//   authorization: 'Bearer ' + token
-//}
-
-
+// finds all user projects
 router.get('/', (req, res) => {
+    
     const id = decodeToken(req)
 
     console.log(id)
@@ -30,20 +24,30 @@ router.get('/', (req, res) => {
 
 })
 
-router.post('/new')
+// creates a new project and pushes to user
+router.post('/', (req, res) => {
 
+    const id = decodeToken(req)
+    
+    project = new Project ({
+        name: req.body.name,
+        client: req.body.client,
+        imageURL: req.body.imageURL
+    });
 
-// router.post('/', (req, res) => {
-//     Project.create({
-//         name: req.body.name,
-//         client: req.body.client,
-//         imageURL: req.body.imageURL
-//     }).then(project => {
-//         res.json(project)
-//     }).catch((err) => {
-//         console.log(err)
-//     })
-// })
-
+    project.save((err, doc) => {
+        if (err)
+        res.send(err);
+        User.findByIdAndUpdate(id)
+        .then(user => {
+            user.projectIds.push(doc)
+            user.save(function (err) {
+                if (err) return handleError(err)
+                console.log('project created')
+            })
+        })
+    })
+    
+})
 
 module.exports = router
