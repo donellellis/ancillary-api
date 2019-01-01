@@ -11,6 +11,7 @@ const app = express()
 // controllers
 const userController = require('./controllers/users.js')
 const projectController = require('./controllers/projects.js')
+const chairController = require('./controllers/chairs.js')
 
 
 app.use(parser.json())
@@ -21,6 +22,7 @@ app.use(passport.initialize())
 // routes
 app.use('/projects', projectController)
 app.use('/users', userController)
+app.use('/chairs', chairController)
 
 app.listen(4000, () => console.log("server is running"));
 

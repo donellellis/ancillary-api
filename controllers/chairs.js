@@ -1,3 +1,52 @@
+const express = require('express')
+const router = express.Router()
+
+const User = require('../models/User')
+const Project = require('../models/Project')
+const Chair = require('../models/Chair')
+
+const decodeToken = require('./auth')
+
+// finds all project chairs
+router.post('/projectChairs', (req, res) => {
+
+    // add authentication
+
+    Project.findById(req.body.projectid)
+    .populate('chairIds')
+    .then(project => {
+        if (project !== null) {
+            res.json(project.chairIds)
+        }
+    })
+
+})
+
+module.exports = router
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // const express = require('express')
 // const router = express.Router()
 // const mongoose = require("../models/Furniture.js")
