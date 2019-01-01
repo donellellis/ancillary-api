@@ -8,14 +8,14 @@ const decodeToken = require('./auth')
 
 // finds all user projects
 router.get('/', (req, res) => {
-    
+
     const id = decodeToken(req)
 
     console.log(id)
     User.findById(id)
     .populate('projectIds')
     .then(user => {
-        console.log('user', user)
+        // console.log('user', user)
         if (user !== null) {
             // request is authenticated
             res.json(user.projectIds)
@@ -24,9 +24,30 @@ router.get('/', (req, res) => {
 
 })
 
+// finds single project
+router.post('/singleProject', (req, res) => {
+
+    const id = decodeToken(req)
+    // console.log(id)
+
+    User.findById(id)
+    .then (user => {
+        if (user !== null) {
+            // console.log('body', req.body)
+            Project.findById(req.body.projectid)
+            .then(project => {
+                res.json(project)
+            })
+            .catch(err => {
+                console.log(err)
+            })
+        }
+    })
+})
+
+
 // creates a new project and pushes to user
 router.post('/', (req, res) => {
-
     const id = decodeToken(req)
     
     project = new Project ({
