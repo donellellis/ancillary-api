@@ -1,11 +1,12 @@
 const mongoose = require('mongoose')
+const chairIds = require('./chairSeedData').chairIds
 
 const projectIds = {
         "moonshot" : new mongoose.Types.ObjectId(),
         "little leaf": new mongoose.Types.ObjectId(),
         "the crystal shop": new mongoose.Types.ObjectId(),
         "artifact": new mongoose.Types.ObjectId()
-        }
+}
 
 const projectSeedData = [
         {
@@ -21,7 +22,10 @@ const projectSeedData = [
         "name" : "little leaf",
         "client" : "stacey mckenzie",
         "imageURL" : "https://i.imgur.com/S9wexON.jpg?2",
-        "chairIds" : []
+        "chairIds" : [
+                chairIds["lasai"],
+                chairIds["crosshatch"]
+        ]
         },
 
         {

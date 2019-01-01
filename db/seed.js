@@ -1,4 +1,4 @@
-const chairData = require('./chairSeedData.json')
+const chairData = require('./chairSeedData').chairSeedData
 const userData = require('./userSeedData').userSeedData
 const projectData = require('./projectSeedData').projectSeedData
 

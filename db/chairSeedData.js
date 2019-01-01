@@ -1,6 +1,14 @@
-[
+const mongoose = require('mongoose')
+
+const chairIds = {
+  "lasai" : new mongoose.Types.ObjectId(),
+  "wishbone": new mongoose.Types.ObjectId(),
+  "crosshatch": new mongoose.Types.ObjectId()
+}
+
+const chairSeedData = [
   {
-    "_id" : "5c281c9d42df63572decc1f8",
+    "_id" : chairIds["lasai"],
     "manufacturer": "studiotk",
     "chairName": "lasai",
     "chairNumber": "ALLCA",
@@ -10,7 +18,7 @@
   },
 
   {
-    "_id" : "5c281c9d42df63572decc1f9",
+    "_id" : chairIds["wishbone"],
     "manufacturer": "coalesse",
     "chairName": "wishbone",
     "chairNumber": "ch24",
@@ -20,7 +28,7 @@
   },
 
   {
-    "_id" : "5c281c9d42df63572decc1fa",
+    "_id" : chairIds["crosshatch"],
     "manufacturer": "herman miller",
     "chairName": "crosshatch",
     "chairNumber": "SES1A6A122H16CBKNOCAL",
@@ -29,3 +37,8 @@
     "list": 2500
   }
 ]
+
+module.exports = {
+  chairIds: chairIds,
+  chairSeedData: chairSeedData
+}
