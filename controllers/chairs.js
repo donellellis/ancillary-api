@@ -22,6 +22,29 @@ router.post('/projectChairs', (req, res) => {
 
 })
 
+// router.get('/', (req, res) => {
+//     Chair.find(req)
+//     .then(chairs => {
+//         res.json(chairs)
+//     })
+// })
+
+// app.get('/api/ideas', (req, res) => {
+//     res.json(seedData)
+// })
+
+
+router.get('/', (req, res) => {
+    Chair.find()
+      .then((chairs) => {
+          console.log(chairs)
+        res.json(chairs)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+})
+
 module.exports = router
 
 

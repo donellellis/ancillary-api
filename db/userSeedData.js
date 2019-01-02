@@ -12,7 +12,6 @@ const userSeedData = [
         "email" : "meg@email.com",
         "password" : "meg123",
         "projectIds" : [
-            projectIds["moonshot"],
             projectIds["the crystal shop"]
         ]
     },
@@ -21,7 +20,8 @@ const userSeedData = [
         "email" : "Ray@Eames.com",
         "password" : "LaChaise1948",
         "projectIds" : [
-            projectIds['little leaf']
+            projectIds['little leaf'],
+            projectIds["moonshot"]
         ]
     }
 ]

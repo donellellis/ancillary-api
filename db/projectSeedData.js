@@ -14,7 +14,9 @@ const projectSeedData = [
         "name" : "moonshot",
         "client" : "jesse gerard",
         "imageURL" : "https://i.imgur.com/nUA7NRz.jpg?1",
-        "chairIds" : []
+        "chairIds" : [
+                chairIds["wishbone"]
+        ]
         },
 
         {
