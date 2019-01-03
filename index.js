@@ -24,7 +24,11 @@ app.use('/projects', projectController)
 app.use('/users', userController)
 app.use('/chairs', chairController)
 
-app.listen(4000, () => console.log("server is running"));
+app.set('port', process.env.PORT || 4000)
+
+app.listen(app.get('port'), () => {
+  console.log(`✅ PORT: ${app.get('port')} 🌟`)
+})
 
 
 

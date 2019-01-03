@@ -26,14 +26,10 @@ router.post('/signup', (req, res) => {
                   let payload = {
                     id: user._id
                   }
-                  // console.log(payload)
-                  
                   let token = jwt.encode(payload, config.jwtSecret)
-                  // console.log(jwt.decode(token, config.jwtSecret))
                   res.json({
                     token: token
                   })
-
                 } else {
                   res.sendStatus(401)
                 }
@@ -57,7 +53,6 @@ router.post('/signup', (req, res) => {
               id: user._id
             }
             let token = jwt.encode(payload, config.jwtSecret)
-            // console.log(jwt.decode(token, config.jwtSecret))
             res.json({
               token: token
             })

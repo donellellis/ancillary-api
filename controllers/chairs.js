@@ -1,16 +1,13 @@
 const express = require('express')
 const router = express.Router()
 
-const User = require('../models/User')
 const Project = require('../models/Project')
 const Chair = require('../models/Chair')
-
-const decodeToken = require('./auth')
 
 // finds all chairs in a project
 router.post('/projectChairs', (req, res) => {
 
-    // todo: add authentication
+    // does not require authentication
 
     Project.findById(req.body.projectid)
     .populate('chairIds')
