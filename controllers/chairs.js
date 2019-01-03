@@ -7,10 +7,10 @@ const Chair = require('../models/Chair')
 
 const decodeToken = require('./auth')
 
-// finds all project chairs
+// finds all chairs in a project
 router.post('/projectChairs', (req, res) => {
 
-    // add authentication
+    // todo: add authentication
 
     Project.findById(req.body.projectid)
     .populate('chairIds')
@@ -27,7 +27,6 @@ router.put('/updateProjectChairs', (req, res) => {
     console.log(req.body)
 
     Project.findByIdAndUpdate(req.body.projectid)
-    // console.log(req.body.projectid)
     .populate('chairIds')
     .then(project => {
         for (let i = 0; i < req.body.isUsed.length; i++) {
@@ -44,6 +43,7 @@ router.put('/updateProjectChairs', (req, res) => {
 
 })
 
+// finds all chairs
 router.get('/', (req, res) => {
     Chair.find()
       .then((chairs) => {
@@ -56,65 +56,3 @@ router.get('/', (req, res) => {
 })
 
 module.exports = router
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const express = require('express')
-// const router = express.Router()
-// const mongoose = require("../models/Furniture.js")
-// const Furniture = mongoose.model('Furniture')
-// const seedData = require('../db/seedData.json')
-
-// app.get('/', (req, res) => {
-//     res.json(seedData)
-// })
-
-// router.get('/', (req, res) => {
-//     res.json(seedData)
-// })
-
-// router.get('/', (req, res) => {
-//     Furniture.find({})
-//         .then(furniture => res.json(furniture))
-// })
-
-// module.exports = router
-
-
-
-// app.get('/api/translations', (req, res) => {
-//     Translation.find()
-//       .then((translations) => {
-//         res.json(translations)
-//       })
-//       .catch((err) => {
-//         console.log(err)
-//       })
-//   })
-
-
-// router.get('/', (req, res) => {
-//     Dog.find({})
-//         .then(dogs => res.json(dogs))
-// })

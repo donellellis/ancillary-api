@@ -45,6 +45,29 @@ router.post('/singleProject', (req, res) => {
     })
 })
 
+
+// deletes a single project
+router.delete('/deleteProject', (req, res) => {
+
+    const id = decodeToken(req)
+    // console.log('project id', id)
+
+    User.findById(id)
+    .then (user => {
+        if (user !== null) {
+            // console.log('body', req.body)
+            Project.findOneAndDelete({_id: req.body.projectid})
+                .then(() => {
+                    console.log("project deleted")
+                })
+                .catch(err => {
+                    console.log(err)
+                })
+        }
+    })
+})
+
+
 // creates a new project and pushes to user
 router.post('/', (req, res) => {
     const id = decodeToken(req)
