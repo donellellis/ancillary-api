@@ -6,7 +6,7 @@ const passport = require('./config/passport')()
 const app = express()
 
 // needed for environmental variables in frontend
-// require('dotenv').config();
+require('dotenv').config();
 
 // controllers
 const userController = require('./controllers/users.js')
