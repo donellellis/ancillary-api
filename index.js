@@ -20,9 +20,9 @@ app.use(cors())
 app.use(passport.initialize())
 
 // routes
-app.use('/projects', projectController)
-app.use('/users', userController)
-app.use('/chairs', chairController)
+app.use('projects', projectController)
+app.use('users', userController)
+app.use('chairs', chairController)
 
 app.set('port', process.env.PORT || 4000)
 
