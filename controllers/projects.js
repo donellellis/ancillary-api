@@ -45,7 +45,6 @@ router.post('/singleProject', (req, res) => {
     })
 })
 
-
 // creates a new project and pushes to user
 router.post('/', (req, res) => {
     const id = decodeToken(req)

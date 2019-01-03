@@ -22,17 +22,27 @@ router.post('/projectChairs', (req, res) => {
 
 })
 
-// router.get('/', (req, res) => {
-//     Chair.find(req)
-//     .then(chairs => {
-//         res.json(chairs)
-//     })
-// })
+// update chairIds in single project
+router.put('/updateProjectChairs', (req, res) => {
+    console.log(req.body)
 
-// app.get('/api/ideas', (req, res) => {
-//     res.json(seedData)
-// })
+    Project.findByIdAndUpdate(req.body.projectid)
+    // console.log(req.body.projectid)
+    .populate('chairIds')
+    .then(project => {
+        for (let i = 0; i < req.body.isUsed.length; i++) {
+            project.chairIds.push(req.body.isUsed[i])
+        }
+        project.save(function (err) {
+            if (err) return handleError(err)
+            console.log('project updated')
+        })
+    })
+    .catch(err => {
+        console.log(err)
+    })
 
+})
 
 router.get('/', (req, res) => {
     Chair.find()

@@ -7,7 +7,8 @@ const chairIds = {
   "piton": new mongoose.Types.ObjectId(),
   "apel": new mongoose.Types.ObjectId(),
   "kuskoa stool": new mongoose.Types.ObjectId(),
-  "shell": new mongoose.Types.ObjectId()
+  "shell": new mongoose.Types.ObjectId(),
+  "belleville": new mongoose.Types.ObjectId()
 }
 
 const chairSeedData = [
