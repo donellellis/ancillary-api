@@ -59,6 +59,8 @@ router.delete('/deleteProject', (req, res) => {
             Project.findOneAndDelete({_id: req.body.projectid})
                 .then(() => {
                     console.log("project deleted")
+                    res.status(200).end()
+                    
                 })
                 .catch(err => {
                     console.log(err)
@@ -79,15 +81,19 @@ router.post('/', (req, res) => {
     });
 
     project.save((err, doc) => {
-        if (err)
-        res.send(err);
+        if (err) {
+            res.send(err);
+        }
         User.findByIdAndUpdate(id)
         .then(user => {
             user.projectIds.push(doc)
             user.save(function (err) {
-                if (err) return handleError(err)
+                if (err) {
+                    console.log(err)
+                }
                 console.log('project created')
             })
+            res.status(200).end()
         })
     })
     
