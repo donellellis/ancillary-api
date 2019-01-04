@@ -7,11 +7,6 @@ const ChairSchema = new mongoose.Schema({
   dimensions: String,
   imageURL: String,
   list: Number
-  // add user input for quantity
-  // add automatically generated tag
-  // add finishes
-  // format d w l consistently - seperate
-  // format list price consistently
 });
 
 
