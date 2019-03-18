@@ -8,7 +8,7 @@ const app = express()
 // prevents heroku from sleeping
 let http = require('http')
 setInterval(function() {
-    http.get('https://ancillary-api.herokuapp.com/')
+    http.get('https://ancillary-api.herokuapp.com')
 }, 300000) // every 5 minutes (300000)
 
 // needed for environmental variables in frontend
