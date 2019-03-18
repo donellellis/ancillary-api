@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
     User.findById(id)
     .populate('projectIds')
     .then(user => {
-        // console.log('user', user)
+     
         if (user !== null) {
             // request is authenticated
             res.json(user.projectIds)
@@ -28,12 +28,11 @@ router.get('/', (req, res) => {
 router.post('/singleProject', (req, res) => {
 
     const id = decodeToken(req)
-    // console.log(id)
 
     User.findById(id)
     .then (user => {
         if (user !== null) {
-            // console.log('body', req.body)
+           
             Project.findById(req.body.projectid)
             .then(project => {
                 res.json(project)
@@ -50,12 +49,11 @@ router.post('/singleProject', (req, res) => {
 router.delete('/deleteProject', (req, res) => {
 
     const id = decodeToken(req)
-    // console.log('project id', id)
 
     User.findById(id)
     .then (user => {
         if (user !== null) {
-            // console.log('body', req.body)
+    
             Project.findOneAndDelete({_id: req.body.projectid})
                 .then(() => {
                     console.log("project deleted")
